@@ -109,6 +109,3 @@ dataEntry(ballard.generateRandom(),"B12");
 dataEntry(ballard.daily(),"B13");
 
 
-console.log(downtown.hourlyArray);
-
-
