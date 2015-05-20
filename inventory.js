@@ -20,6 +20,24 @@ var table, newRow, newData, newText;
 var hoursOpen = ['Location','7:00am', '8:00am', '9:00am', '10:00am', '11:00am',
 '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', 'Total'];
 
+var newPlace, newMin, newMax, newAvg, newLocation
+
+// Buttons and input
+var makePlace = function(e){
+  e.preventDefault();
+   newPlace = document.getElementById('local').value;
+   newMin = document.getElementById('min').value;
+   newMax = document.getElementById('max').value;
+   newAvg = document.getElementById('avg').value;
+   newLocation = new Location(newPlace, newMin, newMax, newAvg);
+   new
+   newLocation.createT();
+}
+
+var el = document.getElementById('button');
+el.addEventListener('click', makePlace, false);
+
+// Hours made into headers
 var table = document.getElementById('tableStart');
 var headers = function(){
   for ( var i=0; i < hoursOpen.length; i++){
@@ -36,24 +54,27 @@ Location.prototype.generateRandom = function() {
   return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
 }
 
-// Hourly production fucntion
+//  Production function
 Location.prototype.hourly = function() {
    return parseInt(this.generateRandom() * this.avg);
 }
 
 var table = document.getElementById('tableStart');
 
-
+//Creates table
 Location.prototype.createT = function() {
-  var total = 0;
-  newRow = document.createElement('tr');
     var hour = this.hourly();
+    var total = 0;
+
+// creates name column
+    newRow = document.createElement('tr');
     newData = document.createElement('td');
     newText = document.createTextNode(this.name);
     newData.appendChild(newText);
     newRow.appendChild(newData);
     table.appendChild(newRow);
 
+// creates table data and total data
   for (var i=0; i<this.hours; i++) {
     var hour = this.hourly();
     newData = document.createElement('td');
@@ -63,6 +84,7 @@ Location.prototype.createT = function() {
     table.appendChild(newRow);
     total += hour;
   }
+// creates total column
     newData = document.createElement('td');
     newText = document.createTextNode(total);
     newData.appendChild(newText);
