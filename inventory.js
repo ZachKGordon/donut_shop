@@ -1,114 +1,100 @@
-
-// Location Constructor
-var Location = function(name,min,max,avg) {
+var Location = function(name,min,max,avg,hours) {
   this.name=name;
   this.min=min;
   this.max=max;
   this.avg=avg;
-}
-
-// Random number function and average calculator
-Location.prototype.generateRandom = function() {
-  return Math.floor(Math.random() * (((this.max - this.min + 1)) + this.min) * this.avg)
+  this.hours = 12;
 }
 
 // Instantiation of locations
-var downtown = new Location("Downtown",8,43,4.50);
-var cap_hill = new Location("Capital Hill",4,37,2.00);
+var downtown = new Location("Downtown",8,43,4.5);
+var cap_hill = new Location("Capital Hill",4,37,2.);
 var sL_union = new Location("South Lake Union",9,23,6.33);
 var wWood = new Location("Wedgewood",2,28,1.25);
 var ballard = new Location("Ballard",8,58,3.75);
 
-// For loop making 11 hours
-hourlyArray = []
-Location.prototype.daily = function() {
-  var total = 0;
-  for (i=0;i<=11;i++) {
-    total += hourlyArray.push(this.generateRandom());
+// Variables
+var table, newRow, newData, newText;
+var hoursOpen = ['Location','7:00am', '8:00am', '9:00am', '10:00am', '11:00am',
+'12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', 'Total'];
+
+var newPlace, newMin, newMax, newAvg, newLocation
+
+// Buttons and input
+var makePlace = function(e){
+  e.preventDefault();
+   newPlace = document.getElementById('local').value;
+   newMin = document.getElementById('min').value;
+   newMax = document.getElementById('max').value;
+   newAvg = document.getElementById('avg').value;
+   newLocation = new Location(newPlace, newMin, newMax, newAvg);
+   newLocation.createT();
+}
+
+var el = document.getElementById('button');
+el.addEventListener('click', makePlace, false);
+
+// Hours made into headers
+var table = document.getElementById('tableStart');
+var headers = function(){
+  for ( var i=0; i < hoursOpen.length; i++){
+    newRow = document.createElement('th');
+    newText = document.createTextNode(hoursOpen[i]);
+    newRow.appendChild(newText);
+    table.appendChild(newRow);
   }
-  return total;
 }
 
 
-var dataEntry = function(spot,id){
-element_node = document.createElement('td');
-var text_node    = document.createTextNode(spot);
-element_node.appendChild(text_node);
-var position = document.getElementById(id);
-position.appendChild(element_node);
+// Random number function
+Location.prototype.generateRandom = function() {
+  return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
 }
 
-dataEntry(downtown.generateRandom(),"D1");
-dataEntry(downtown.generateRandom(),"D2");
-dataEntry(downtown.generateRandom(),"D3");
-dataEntry(downtown.generateRandom(),"D4");
-dataEntry(downtown.generateRandom(),"D5");
-dataEntry(downtown.generateRandom(),"D6");
-dataEntry(downtown.generateRandom(),"D7");
-dataEntry(downtown.generateRandom(),"D8");
-dataEntry(downtown.generateRandom(),"D9");
-dataEntry(downtown.generateRandom(),"D10");
-dataEntry(downtown.generateRandom(),"D11");
-dataEntry(downtown.generateRandom(),"D12");
-dataEntry(downtown.daily(),"D13");
+//  Production function
+Location.prototype.hourly = function() {
+   return parseInt(this.generateRandom() * this.avg);
+}
 
-dataEntry(cap_hill.generateRandom(),"C1");
-dataEntry(cap_hill.generateRandom(),"C2");
-dataEntry(cap_hill.generateRandom(),"C3");
-dataEntry(cap_hill.generateRandom(),"C4");
-dataEntry(cap_hill.generateRandom(),"C5");
-dataEntry(cap_hill.generateRandom(),"C6");
-dataEntry(cap_hill.generateRandom(),"C7");
-dataEntry(cap_hill.generateRandom(),"C8");
-dataEntry(cap_hill.generateRandom(),"C9");
-dataEntry(cap_hill.generateRandom(),"C10");
-dataEntry(cap_hill.generateRandom(),"C11");
-dataEntry(cap_hill.generateRandom(),"C12");
-dataEntry(cap_hill.daily(),"C13");
+var table = document.getElementById('tableStart');
 
-dataEntry(sL_union.generateRandom(),"S1");
-dataEntry(sL_union.generateRandom(),"S2");
-dataEntry(sL_union.generateRandom(),"S3");
-dataEntry(sL_union.generateRandom(),"S4");
-dataEntry(sL_union.generateRandom(),"S5");
-dataEntry(sL_union.generateRandom(),"S6");
-dataEntry(sL_union.generateRandom(),"S7");
-dataEntry(sL_union.generateRandom(),"S8");
-dataEntry(sL_union.generateRandom(),"S9");
-dataEntry(sL_union.generateRandom(),"S10");
-dataEntry(sL_union.generateRandom(),"S11");
-dataEntry(sL_union.generateRandom(),"S12");
-dataEntry(sL_union.daily(),"S13");
+//Creates table
+Location.prototype.createT = function() {
+    var hour = this.hourly();
+    var total = 0;
 
-dataEntry(wWood.generateRandom(),"W1");
-dataEntry(wWood.generateRandom(),"W2");
-dataEntry(wWood.generateRandom(),"W3");
-dataEntry(wWood.generateRandom(),"W4");
-dataEntry(wWood.generateRandom(),"W5");
-dataEntry(wWood.generateRandom(),"W6");
-dataEntry(wWood.generateRandom(),"W7");
-dataEntry(wWood.generateRandom(),"W8");
-dataEntry(wWood.generateRandom(),"W9");
-dataEntry(wWood.generateRandom(),"W10");
-dataEntry(wWood.generateRandom(),"W11");
-dataEntry(wWood.generateRandom(),"W12");
-dataEntry(wWood.daily(),"W13");
+// creates name column
+    newRow = document.createElement('tr');
+    newData = document.createElement('td');
+    newText = document.createTextNode(this.name);
+    newData.appendChild(newText);
+    newRow.appendChild(newData);
+    table.appendChild(newRow);
 
-dataEntry(ballard.generateRandom(),"B1");
-dataEntry(ballard.generateRandom(),"B2");
-dataEntry(ballard.generateRandom(),"B3");
-dataEntry(ballard.generateRandom(),"B4");
-dataEntry(ballard.generateRandom(),"B5");
-dataEntry(ballard.generateRandom(),"B6");
-dataEntry(ballard.generateRandom(),"B7");
-dataEntry(ballard.generateRandom(),"B8");
-dataEntry(ballard.generateRandom(),"B9");
-dataEntry(ballard.generateRandom(),"B10");
-dataEntry(ballard.generateRandom(),"B11");
-dataEntry(ballard.generateRandom(),"B12");
-dataEntry(ballard.daily(),"B13");
+// creates table data and total data
+  for (var i=0; i<this.hours; i++) {
+    var hour = this.hourly();
+    newData = document.createElement('td');
+    newText = document.createTextNode(hour);
+    newData.appendChild(newText);
+    newRow.appendChild(newData);
+    table.appendChild(newRow);
+    total += hour;
+  }
+// creates total column
+    newData = document.createElement('td');
+    newText = document.createTextNode(total);
+    newData.appendChild(newText);
+    newRow.appendChild(newData);
+    table.appendChild(newRow);
 
+}
 
-console.log(downtown.hourlyArray);
+headers();
+downtown.createT();
+cap_hill.createT();
+sL_union.createT();
+wWood.createT();
+ballard.createT();
 
 
