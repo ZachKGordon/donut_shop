@@ -1,5 +1,3 @@
-
-// Location Constructor
 var Location = function(name,min,max,avg,hours) {
   this.name=name;
   this.min=min;
@@ -30,7 +28,6 @@ var makePlace = function(e){
    newMax = document.getElementById('max').value;
    newAvg = document.getElementById('avg').value;
    newLocation = new Location(newPlace, newMin, newMax, newAvg);
-   new
    newLocation.createT();
 }
 
@@ -99,7 +96,5 @@ cap_hill.createT();
 sL_union.createT();
 wWood.createT();
 ballard.createT();
-
-
 
 
