@@ -2,28 +2,31 @@
 <html>
   <head>
     <title> Inventory </title>
+    <link rel="stylesheet" type="text/css" href="reset.css">
     <meta name="description" name="donut, inventory, top_pot,">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href='http://fonts.googleapis.com/css?family=Poiret+One|Indie+Flower' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Quicksand:700' rel='stylesheet'
+    type='text/css'>
   </head>
   <body>
     <header>
     <h1>Top Pot</h1>
     </header>
-    <table id = "tableStart">
+    <table>
+      <tbody class='container' id = "tableStartam"></tbody>
     </table>
-    <form>
-      <p> Location
-      <input id= "local" type="text">
-      Min
-      <input id= "min" type="text">
-      Max
-      <input id= "max" type="text">
-      Avg
-      <input id= "avg" type="text">
-      <button type = "button" id = "button"> Submit</button>
+    <table>
+      <tbody class='containerPm' id = "tableStartPm"></tbody>
+      <span>
+      <section class='annoying'> <p>Location<input id= "local" type="text"></p>
+      <p>Min<input id= "min" type="text"></p>
+      <p>Max<input id= "max" type="text"></p>
+      <p>Avg <input id= "avg" type="text"></p>
+      <p><button type = "button" id = "button"> Submit </button></section>
+      </span>
+      </table>
     </p>
-    </form>
   </body>
 <html>
  <script language="javascript" type="text/javascript" src="inventory.js"></script>
