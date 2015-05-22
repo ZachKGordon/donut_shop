@@ -1,3 +1,14 @@
+section{
+  margin-top: 10px;
+  margin-left: 10px;
+  float: left;
+  font-family: 'quicksand', cursive;
+  text-align: right;}
+body{
+  background-image: url(http://cdn1.bostonmagazine.com/wp-content/uploads/2014/03/Union-Donuts-1.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
 h1 {
   background-color: rgb(244,236,215);
   position: inline-block;
@@ -7,29 +18,47 @@ h1 {
   font-family: 'quicksand', cursive;
   text-align: right;}
 
+
 table{
   border: 3px solid gray;
   margin: auto;
   width: 80%;
   max-width: 960px}
 
-tbody.container {
+tbody{
   position: inline;
   color: white;
   font-size: 14px;
   background-color: #3E606F;
   font-family: 'Poiret One';
-  text-align: center;}
+  text-align: center;
+  opacity: 1;
+}
+td:hover{
+  transform: scale(1.5);
+}
+th:hover{
+  transform: scale(1.5);
 }
 
-body{
-  text-align: right;
-  float: right;
-}
+input{}
 
-section{
-  margin: 5px;
-  float: left;
+input.container:hover {
+  color:white;
+  background-color: #3E606F;}
+
+footer{
+  font-size: 40px;
   font-family: 'quicksand', cursive;
-  text-align: right;}
+  text-align: center;
+  color: rgb(62,96,111);
+  width: 500px;
+  height: 50px;
+  background-color: rgba(62,96,111,1);
+  margin: 450px auto;}
+
+footer.last:hover{
+  background-color: rgba(62,96,111,.1);}
+
+
 
