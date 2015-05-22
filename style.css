@@ -1,42 +1,35 @@
-html{ background: rgb(200,222,200);
-}
-body{
-  position: relative;
-}
 h1 {
+  background-color: rgb(244,236,215);
+  position: inline-block;
   padding: 2%;
   font-size: 50px;
   color: #3E606F;
   font-family: 'quicksand', cursive;
-  text-align: center;}
+  text-align: right;}
 
 table{
   border: 3px solid gray;
-  margin-left: 25%;
-  margin-right: -4%;}
+  margin: auto;
+  width: 80%;
+  max-width: 960px}
 
 tbody.container {
-  background-color: rgb(213,222,221);
+  position: inline;
+  color: white;
+  font-size: 14px;
+  background-color: #3E606F;
   font-family: 'Poiret One';
-  text-align: left;}
+  text-align: center;}
+}
 
-tbody.containerPm {
-  background-color: rgb(244,236,215);
-  font-family: 'Poiret One';
-  text-align: left;}
-
-th {
-width: 5%;}
+body{
+  text-align: right;
+  float: right;
+}
 
 section{
-  border: 3px solid gray;
-  width: 75%;
+  margin: 5px;
+  float: left;
+  font-family: 'quicksand', cursive;
   text-align: right;}
-
- span {
-  position:fixed;
-  float:left;
-  top:14.75%;
-  left:-1%;
-  font-family: 'quicksand', cursive;}
 
